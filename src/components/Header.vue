@@ -1,13 +1,46 @@
 <template>
-  <h1>Cabeçalho</h1>
+  <v-toolbar app>
+    <!-- Classes definidas no vuetify -->
+    <v-toolbar-title class="headline text-uppercase mr-4">
+      <span>Stock</span>
+      <!-- font-weight-light = fonte mais fina -->
+      <span class="font-weight-light">Trader</span>
+    </v-toolbar-title>
+    <v-toolbar-items>
+      <!-- flat = melhora estética dos botões -->
+      <v-btn flat to="/">Início</v-btn>
+      <v-btn flat to="/portfolio">Portfolio</v-btn>
+      <v-btn flat to="/stocks">Ações</v-btn>
+    </v-toolbar-items>
+
+    <v-spacer>
+    </v-spacer>
+
+    <v-toolbar-items>
+      <v-btn flat>Finalizar Dia</v-btn>
+      <v-menu offset-y>
+        <!-- slot="activator" = abrir uma outra janela após clicar no botão -->
+        <v-btn flat slot="activator">Salvar & Carregar</v-btn>
+        <v-list>
+             <v-list-tile>
+               <v-list-tile-title>
+                 Salvar Dados
+               </v-list-tile-title>
+             </v-list-tile>
+             <v-list-tile>
+               <v-list-tile-title>
+                 Carregar Dados
+               </v-list-tile-title>
+             </v-list-tile>
+        </v-list>
+      </v-menu>
+    </v-toolbar-items>
+  </v-toolbar>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>
