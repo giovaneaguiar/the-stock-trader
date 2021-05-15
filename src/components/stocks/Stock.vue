@@ -27,7 +27,7 @@
         />
         <v-btn class="green darken-3 white--text" 
         :disabled="quantity <= 0 || !Number.isInteger(quantity)"
-        @click="comprarAcao"
+        @click="buyStock"
           >Comprar</v-btn
         >
       </v-container>
@@ -37,24 +37,27 @@
 
 <script>
 export default {
-  props: ["stock"],
+  props: ['stock'],
 
   data() {
     return {
       // quantidade de ações começar em 0
-      quantity: 0,
+      quantity: 0
     };
   },
 
   methods: {
-    comprarAcao() {
-      //eslint-disable-next-line
+    buyStock() {
+
          const ordem = {
           stockId: this.stock.id,
           stockPrice: this.stock.price,
           quantity: this.quantity
         }
-      
+        
+        this.$store.dispatch('buyStock', ordem)
+        //disparar uma ação
+      this.quantity = 0;
         
   }
 }

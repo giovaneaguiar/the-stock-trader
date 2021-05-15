@@ -14,10 +14,11 @@
 import Header from "./components/Header";
 export default {
   components: { Header },
+
   created() {
     //chamar action do módulo
-    this.$store.dispatch("inicializaStock");
-  },
+    this.$store.dispatch('initStocks')
+  }
 };
 </script>
 

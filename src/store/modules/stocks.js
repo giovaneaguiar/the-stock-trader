@@ -1,4 +1,4 @@
-import stocks from '@/data/stocks'
+import stocks from '../../data/stocks'
 // MODULO PARA STOCK
 export default {
     state: {
@@ -6,18 +6,18 @@ export default {
     },
 
     mutations: {
-        alterarStock(state, stocks) {
+        setStocks(state, stocks) {
             state.stocks = stocks
         }
     },
     actions: {
         //commit é responsável por chamar mutations
         //a variavel ordem vem da função comprarAcao em Stock.vue
-        comprarStock({ commit }, ordem) {
-            commit()
+        buyStock({ commit }, ordem) {
+            commit('buyStock', ordem)
         },
-        inicializaStock({ commit }) {
-            commit('alterarStock', stocks)
+        initStocks({ commit }) {
+            commit('setStocks', stocks)
 
         }
     },

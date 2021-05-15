@@ -60,7 +60,7 @@ export default {
             return state.stocks.map(stock => {
                 //utiliza metodo 'map' para transformar um array que
                 //possui apenas dois atributos, para um array completo, como nome e preço
-                const record = getters.stocks.find(element => element.id == stocks.id)
+                const record = getters.stocks.find(element => element.id == stock.id)
                 //pegando o getters daqui, consigo acessar o outro getters do stocks.js
                 return {
                     id: stock.id,
