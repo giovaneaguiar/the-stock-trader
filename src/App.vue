@@ -1,23 +1,26 @@
 <template>
-	<!-- componentes do vuetify -->
-	<v-app>
-		<Header/>
-		<v-content>
-			<v-container>
-				<router-view></router-view>
-			</v-container>
-		</v-content>
-	</v-app>
+  <!-- componentes do vuetify -->
+  <v-app>
+    <Header />
+    <v-content>
+      <v-container>
+        <router-view></router-view>
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import Header from './components/Header'
+import Header from "./components/Header";
 export default {
- components: { Header }
-}
+  components: { Header },
+  created() {
+    //chamar action do módulo
+    this.$store.dispatch("inicializaStock");
+  },
+};
 </script>
 
 <style>
-
 </style>
 
