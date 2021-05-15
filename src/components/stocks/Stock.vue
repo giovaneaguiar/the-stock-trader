@@ -8,7 +8,9 @@
     <v-card class="green darken-3 white--text">
       <!-- v-card = título desse componente-->
       <v-card-title class="headline">
-        <strong>NOME<small> (Preço: PRECO)</small></strong>
+        <strong
+          >{{ stock.name }}<small> (Preço: {{ stock.price }})</small></strong
+        >
       </v-card-title>
     </v-card>
     <v-card>
@@ -16,17 +18,49 @@
       <!-- colocar aqui a quantidade que o usuario vai 
       selecionar e o botao para comprar uma ação -->
       <v-container fill-height>
-        <!-- fill-height = preencher toda altura -->
-        <v-text-field label="Quantidade" type="number" />
-        <v-btn class="green darken-3 white--text">Comprar</v-btn>
+        <!-- fill-height = preencher toda altura
+         v-model.number - pegar a variavel da quantidade inicial -->
+        <v-text-field
+          label="Quantidade"
+          type="number"
+          v-model.number="quantity"
+        />
+        <v-btn class="green darken-3 white--text" 
+        :disabled="quantity <= 0 || !Number.isInteger(quantity)"
+        @click="comprarAcao"
+          >Comprar</v-btn
+        >
       </v-container>
     </v-card>
   </v-flex>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["stock"],
+
+  data() {
+    return {
+      // quantidade de ações começar em 0
+      quantity: 0,
+    };
+  },
+
+  methods: {
+    comprarAcao() {
+       /* const ordem = {
+          stockId: this.stock.id,
+          stockPrice: this.stock.price,
+          quantity: this.quantity
+        }
+        */
+        
+  }
+}
+
+}
 </script>
 
 <style>
+
 </style>

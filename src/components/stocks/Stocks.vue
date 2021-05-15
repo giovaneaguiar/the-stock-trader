@@ -1,7 +1,7 @@
 <template>
   <v-layout row wrap> 
     <!-- pega o array definido em data() -->
-    <Stock v-for="stock in stocks" :key="stock.id" />
+    <Stock v-for="stock in stocks" :key="stock.id" :stock="stock"/>
   </v-layout>
 </template>
 
