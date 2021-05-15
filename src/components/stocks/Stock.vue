@@ -48,12 +48,13 @@ export default {
 
   methods: {
     comprarAcao() {
-       /* const ordem = {
+      //eslint-disable-next-line
+         const ordem = {
           stockId: this.stock.id,
           stockPrice: this.stock.price,
           quantity: this.quantity
         }
-        */
+      
         
   }
 }

@@ -9,7 +9,7 @@
     <v-toolbar-items>
       <!-- flat = melhora estética dos botões -->
       <v-btn flat to="/">Início</v-btn>
-      <v-btn flat to="/portfolio">Portfolio</v-btn>
+      <v-btn flat to="/portfolio">Portfólio</v-btn>
       <v-btn flat to="/stocks">Ações</v-btn>
     </v-toolbar-items>
 
