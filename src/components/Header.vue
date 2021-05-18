@@ -13,8 +13,7 @@
       <v-btn flat to="/stocks">Ações</v-btn>
     </v-toolbar-items>
 
-    <v-spacer>
-    </v-spacer>
+    <v-spacer> </v-spacer>
 
     <v-toolbar-items>
       <v-btn flat>Finalizar Dia</v-btn>
@@ -22,24 +21,31 @@
         <!-- slot="activator" = abrir uma outra janela após clicar no botão -->
         <v-btn flat slot="activator">Salvar & Carregar</v-btn>
         <v-list>
-             <v-list-tile>
-               <v-list-tile-title>
-                 Salvar Dados
-               </v-list-tile-title>
-             </v-list-tile>
-             <v-list-tile>
-               <v-list-tile-title>
-                 Carregar Dados
-               </v-list-tile-title>
-             </v-list-tile>
+          <v-list-tile>
+            <v-list-tile-title> Salvar Dados </v-list-tile-title>
+          </v-list-tile>
+          <v-list-tile>
+            <v-list-tile-title> Carregar Dados </v-list-tile-title>
+          </v-list-tile>
         </v-list>
       </v-menu>
+      <v-layout align-center>
+        <span class="text-uppercase grey--text text--darken-2">
+          Saldo: {{ funds }}
+        </span>
+      </v-layout>
     </v-toolbar-items>
   </v-toolbar>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    funds() {
+      return this.$store.getters.funds;
+    },
+  },
+};
 </script>
 
 <style>
