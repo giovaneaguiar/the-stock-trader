@@ -9,7 +9,7 @@
       <!-- v-card = título desse componente-->
       <v-card-title class="headline">
         <strong
-          >{{ stock.name }}<small> (Preço: {{ stock.price }})</small></strong
+          >{{ stock.name }}<small> (Preço: {{ stock.price | currency }})</small></strong
         >
       </v-card-title>
     </v-card>
