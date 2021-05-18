@@ -30,26 +30,22 @@ export default {
         },
 
         sellStock(state, { stockId, quantity, stockPrice }) {
-            //vender ação
             const record = state.stocks.find(element => element.id == stockId)
+            //validacoes para vender a ação
             if (record.quantity > quantity) {
-                //saber se a quantidade de ações que eu tenho é maior que a 
-                //quantidade de ações que eu quero vender
                 record.quantity -= quantity
-            }
-            else {
-                state.stocks.splice(state.stocks.index0f(record), 1)
-                //funcao para remover um elemento do array
-
-
+            } else {
+                state.stocks.splice(state.stocks.indexOf(record), 1)
+                //retirar um elemento do array
             }
             state.funds += stockPrice * quantity
-            //ajustar saldo
-
+        },
+        setPortfolio(state, portfolio) {
+            state.funds = portfolio.funds
+            state.stocks = portfolio.stockPortfolio ? portfolio.stockPortfolio : []
         }
     },
     actions: {
-        //responsavel por vender uma ação chamando a mutation
         sellStock({ commit }, ordem) {
             commit('sellStock', ordem)
         }

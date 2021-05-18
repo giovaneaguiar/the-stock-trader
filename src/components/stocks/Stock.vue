@@ -23,12 +23,16 @@
         <v-text-field
           label="Quantidade"
           type="number"
+          :error="insufficientFunds || !Number.isInteger(quantity)"
           v-model.number="quantity"
         />
-        <v-btn class="green darken-3 white--text" 
-        :disabled="quantity <= 0 || !Number.isInteger(quantity)"
-        @click="buyStock"
-          >Comprar</v-btn
+        <v-btn
+          class="green darken-3 white--text"
+          :disabled="
+            insufficientFunds || quantity <= 0 || !Number.isInteger(quantity)
+          "
+          @click="buyStock"
+          >{{ insufficientFunds ? "Insuficiente" : "Comprar" }}</v-btn
         >
       </v-container>
     </v-card>
@@ -37,34 +41,41 @@
 
 <script>
 export default {
-  props: ['stock'],
+  props: ["stock"],
 
   data() {
     return {
       // quantidade de ações começar em 0
-      quantity: 0
+      quantity: 0,
     };
   },
 
   methods: {
     buyStock() {
+      const ordem = {
+        stockId: this.stock.id,
+        stockPrice: this.stock.price,
+        quantity: this.quantity,
+      };
 
-         const ordem = {
-          stockId: this.stock.id,
-          stockPrice: this.stock.price,
-          quantity: this.quantity
-        }
-        
-        this.$store.dispatch('buyStock', ordem)
-        //disparar uma ação
+      this.$store.dispatch("buyStock", ordem);
+      //disparar uma ação
       this.quantity = 0;
-        
-  }
-}
+    },
+  },
 
-}
+  computed: {
+    funds() {
+      return this.$store.getters.funds;
+    },
+    insufficientFunds() {
+      //funcao que valida se possui
+      //grana suficiente para comprar o total de ações
+      return this.quantity * this.stock.price > this.funds;
+    },
+  },
+};
 </script>
 
 <style>
-
 </style>
