@@ -1,5 +1,5 @@
 <h1 align="center">The Stock Trader</h1>
-<p align="center">Projeto em Vue (utilizando a biblioteca Vuetify, o gerenciador de estado Vuex, o cliente HTTP Axios e um banco de dados com Firebase), que simula negociações e consultas de ações, focado no front-end.</p>
+<p align="center">Projeto em Vue (utilizando a biblioteca <strong>Vuetify</strong> o gerenciador de estado <strong>Vuex</strong>, o cliente HTTP <strong>Axios</strong> e um banco de dados com <strong>Firebase</strong>), que simula negociações e consultas de ações.</p>
 
 ## 🎨 Layout 
 
