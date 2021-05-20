@@ -22,7 +22,7 @@
         <!-- slot="activator" = abrir uma outra janela após clicar no botão -->
         <v-btn flat slot="activator">Salvar & Carregar</v-btn>
         <v-list>
-          <v-list-tile>
+          <v-list-tile @click="saveData">
             <v-list-tile-title> Salvar Dados </v-list-tile-title>
           </v-list-tile>
           <v-list-tile>
@@ -53,6 +53,10 @@ export default {
      endDay(){
        //funcao finalizar dia
        this.randomizeStocks()
+     },
+     saveData(){
+       const { funds, stockPortfolio, stocks } = this.$store.getters
+       this.$http.put('data.json', { funds, stockPortfolio, stocks })
      }
   }
 };
