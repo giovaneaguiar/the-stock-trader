@@ -59,7 +59,7 @@ $ npm run serve
 
 ### 🛠 Tecnologias
 
-As seguintes ferramentas foram usadas na construção do projeto:
+As seguintes <strong>ferramentas</strong> foram usadas na construção do projeto:
 - [Vue](https://vuejs.org)
 - [Vuetify](https://vuetifyjs.com/en/)
 - [Vuex](https://vuex.vuejs.org/#what-is-a-state-management-pattern)
