@@ -2,7 +2,7 @@
   <v-toolbar app>
     <!-- Classes definidas no vuetify -->
     <v-toolbar-title class="headline text-uppercase mr-4">
-      <span>Stock</span>
+      <span>Vane</span>
       <!-- font-weight-light = fonte mais fina -->
       <span class="font-weight-light">Trader</span>
     </v-toolbar-title>
